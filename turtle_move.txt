@@ -1,0 +1,46 @@
+import turtle as t
+
+move_distance = 50
+
+def draw_turtle():
+    t.penup()
+    t.goto(0, 0)
+    t.pendown()
+    t.clear()
+
+def move_for():
+    t.forward(move_distance)
+
+def move_back():
+    t.backward(move_distance)
+
+def move_left():
+    t.left(90)
+    t.forward(move_distance)
+
+def move_right():
+    t.right(90)
+    t.forward(move_distance)
+
+def reset_position():
+    draw_turtle()
+
+t.onkey(reset_position, "Escape")
+t.listen()
+
+while True:
+    user_input = t.textinput("거북이의 이동","이동 방향을 입력 (w: 위, s: 아래, a: 왼쪽, d: 오른쪽, q: 종료): ")
+
+    if user_input == 'w':
+        move_for()
+    elif user_input == 's':
+        move_back()
+    elif user_input == 'a':
+        move_left()
+    elif user_input == 'd':
+        move_right()
+    elif user_input == 'q':
+        break 
+    else:
+        print("유효하지 않은 입력입니다.")
+
